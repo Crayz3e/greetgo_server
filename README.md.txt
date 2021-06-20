@@ -1,1 +1,0 @@
-greetgo_server
