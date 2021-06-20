@@ -1,0 +1,31 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eportal.mapper.StudentMapper">
+    <resultMap id="student" type="com.eportal.model.Student">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="address" column="address"/>
+        <result property="phoneNumber" column="phoneNumber"/>
+    </resultMap>
+
+    <select id="getStudentById" parameterType="java.lang.Integer" resultMap="student">
+        SELECT * FROM student WHERE id = #{id};
+    </select>
+
+    <select id="getStudents" resultMap="student">
+        SELECT * FROM student;
+    </select>
+
+    <insert id="insertStudent" parameterType="com.eportal.model.Student">
+        INSERT INTO student (name, age, address, phoneNumber) VALUE (#{name}, #{age}, #{address}, #{phoneNumber});
+    </insert>
+
+    <delete id="deleteStudent" parameterType="com.eportal.model.Student">
+        DELETE FROM student WHERE id = #{id};
+        DELETE FROM user_students WHERE id = #{id};
+    </delete>
+
+    <select id="getStudentByParams" parameterType="com.eportal.model.Student" resultMap="student">
+        SELECT * FROM student WHERE name = #{name} AND age = #{age} AND address = #{address} AND phoneNumber = #{phoneNumber} LIMIT 1;
+    </select>
+</mapper>
