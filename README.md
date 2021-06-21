@@ -1,7 +1,7 @@
 # greetgo_server
 1.git clone https://github.com/Crayz3e/greetgo_server
 2.сборщик проекта: Maven
-3.бд: MySQL, открываем по порту 3306
+3.бд: MySQL, открываем по порту 3306, имя бд: eportal
 4.username: root
 5.password: root
 6.cd src/main/java/com/eportal/database
